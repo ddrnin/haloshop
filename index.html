@@ -1,0 +1,3823 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>헤일로샵</title>
+		<link rel="stylesheet" href="./lib/setup.css" type="text/css" />
+		<script src="./lib/jquery.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+		<script src="https://kit.fontawesome.com/581fc6d10b.js" crossorigin="anonymous"></script>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&family=Questrial&display=swap');
+
+			body {
+				font-family: 'Noto Sans KR', sans-serif;
+				color: #111;
+				word-break: keep-all;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+			body::-webkit-scrollbar {
+				width: 10px; /* 스크롤바의 너비 */
+			}
+			body::-webkit-scrollbar-thumb {
+				height: 20%; /* 스크롤바의 길이 */
+				background: #111; /* 스크롤바의 색상 */
+				border-radius: 10px;
+				background-clip: padding-box;
+				border-right: 2px solid transparent;
+			}
+
+			body::-webkit-scrollbar-track {
+				background: transparent; /*스크롤바 뒷 배경 색상*/
+			}
+
+			.m_menu::-webkit-scrollbar {
+				width: 0px; /* 스크롤바의 너비 */
+			}
+			.m_menu::-webkit-scrollbar-thumb {
+				height: 20%; /* 스크롤바의 길이 */
+				background: #111; /* 스크롤바의 색상 */
+				border-radius: 10px;
+				background-clip: padding-box;
+				border-right: 2px solid transparent;
+			}
+
+			.m_menu::-webkit-scrollbar-track {
+				background: transparent; /*스크롤바 뒷 배경 색상*/
+			}
+			input {
+				font-family: inherit;
+			}
+			a,
+			span {
+				font-size: inherit;
+				color: inherit;
+			}
+			header {
+				width: 100%;
+			}
+			.hd1 {
+				height: 118px;
+				border-bottom: 1px solid #ededed;
+				padding: 0 32px;
+			}
+			.hd1 .hd1_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+				height: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.hd1 .logo {
+			}
+			.hd1 .logo a {
+				padding: 15px 10px 15px 0;
+			}
+			.hd1 .search {
+				width: 60%;
+				display: flex;
+				justify-content: right;
+			}
+			.hd1 .search .search_wrap {
+				position: relative;
+				width: 260px;
+				height: 40px;
+			}
+			.hd1 .search .search_wrap input {
+				width: 260px;
+				height: 40px;
+				background: rgba(0, 0, 0, 0.04);
+				border-radius: 50px;
+				border: none;
+				outline: none;
+				padding: 0px 15px;
+			}
+			.hd1 .search .search_wrap .searchBtn {
+				background: none;
+				border: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 10px 20px 10px 0;
+				cursor: pointer;
+			}
+			.hd1 .hd1_menu {
+				display: flex;
+				justify-content: center;
+			}
+			.hd1 .hd1_menu li {
+				padding: 10px;
+			}
+			.hd1 .hd1_menu li:last-child {
+				padding-right: 0;
+			}
+			.hd1 .hd1_menu li a {
+				color: rgba(0, 0, 0, 0.75);
+				font-size: 14px;
+				font-weight: 400;
+				position: relative;
+			}
+			.hd1 .hd1_menu li a::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: -10px;
+				transform: translateY(-50%);
+				width: 1px;
+				height: 10px;
+				background: #d1d1d1;
+			}
+			.hd1 .hd1_menu li:last-child a::before {
+				display: none;
+			}
+			.hd2 {
+				height: 57px;
+				border-bottom: 1px solid #ededed;
+				padding: 0 32px;
+			}
+			.hd2.view {
+				opacity: 0.2;
+			}
+			.fixinner {
+				position: fixed;
+				z-index: 997;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				background: #fff;
+				width: 100%;
+			}
+			.hd2 .hd2_wrap {
+				max-width: 1280px;
+				height: 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			.hd2 .hd2_wrap .menu_wrap {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.hd2 .hd2_wrap .menu_wrap .menu .mainmenu {
+			}
+			.hd2 .hd2_wrap .menu_wrap .menu .mainmenu > li {
+				padding-right: 17px;
+				position: relative;
+			}
+
+			.hd2 .menu_wrap .menu .mainmenu > li > a {
+				font-size: 16px;
+				font-weight: 500;
+				padding: 16px;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li > a:hover {
+				opacity: 0.5;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .mfw7 {
+				font-weight: 700;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .mfw7:hover {
+				opacity: 0.6;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li:first-child > a {
+				padding-left: 0;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .sub_menu {
+				text-align: left;
+				position: absolute;
+				z-index: 9999;
+				width: 100%;
+				display: none;
+				padding-top: 16px;
+			}
+
+			.hd2 .menu_wrap .menu .mainmenu > li .sub_menu > li {
+				width: 100%;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .sub_menu > li > a {
+				padding: 8px 0px 8px 16px;
+				font-size: 13px;
+				font-weight: 500;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .sub_menu > li > a:hover {
+				opacity: 0.7;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li:first-child .sub_menu > li > a {
+				padding-left: 0;
+			}
+			.hd2 .hd2_wrap .submenu_bg {
+				background: #fff;
+				width: 100vw;
+				height: 300px;
+				position: absolute;
+				top: 57px;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 0 32px;
+				z-index: 99;
+				display: none;
+			}
+			.hd2 .hd2_wrap #menu:hover .sub_menu {
+				/* max-height: 500px; */
+				display: block;
+			}
+			.hd2 .hd2_wrap #menu:hover .i_submenu {
+				/* max-height: 500px; */
+				display: grid;
+			}
+			.hd2 .hd2_wrap #menu:hover .submenu_bg {
+				/* height: 300px; */
+				display: block;
+			}
+			.hd2 .menu_wrap .menu .mainmenu > li .sub_menu.view {
+				display: block;
+			}
+			.hd2 .hd2_wrap .submenu_bg.view {
+				display: block;
+			}
+			.hd2 .iconbox .icon {
+			}
+			.hd2 .iconbox .icon > li {
+				padding-left: 18px;
+			}
+			.hd2 .iconbox .icon > li > a {
+				width: 100%;
+				padding: 12px 0;
+			}
+			.hd2 .iconbox .icon li a:hover {
+				opacity: 0.5;
+			}
+			.hd2 .iconbox .icon li a img {
+				width: 100%;
+			}
+			.hd2 .iconbox .icon .menubtn {
+			}
+			.hd2 .iconbox .icon .menubtn button {
+				background: none;
+				border: none;
+				padding: 12px 0;
+				cursor: pointer;
+			}
+			.hd2 .iconbox .icon .menubtn .ib1 {
+			}
+			.hd2 .iconbox .icon .menubtn .ib2 {
+				display: none;
+			}
+			.hd2 .iconbox .icon .menubtn .ib3 {
+				display: none;
+			}
+			.hd2 .iconbox .icon .menubtn.view .ib1 {
+				display: none;
+			}
+			.hd2 .iconbox .icon .menubtn.view .ib2 {
+				display: block;
+			}
+
+			.hd2 .iconbox .icon .menubtn button:hover {
+				opacity: 0.5;
+			}
+
+			.hd2 .iconbox .icon .i_submenu {
+				position: absolute;
+				z-index: 9999;
+				text-align: left;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				padding-top: 16px;
+				display: none;
+			}
+			.hd2 .iconbox .icon .i_submenu.view {
+				display: grid;
+			}
+			.hd2 .iconbox .icon .i_submenu ul {
+			}
+			.hd2 .iconbox .icon .i_submenu ul p {
+				font-size: 16px;
+				font-weight: 500;
+				padding-bottom: 8px;
+			}
+
+			.hd2 .iconbox .icon .i_submenu ul li {
+				width: 100%;
+			}
+			.hd2 .iconbox .icon .i_submenu ul li a {
+				padding: 8px 0 8px;
+				font-size: 13px;
+				font-weight: 400;
+			}
+
+			.m_menu {
+				position: fixed;
+				width: 80%;
+				height: 100vh;
+				top: 0;
+				right: 0;
+				background: #fff;
+				z-index: 999;
+				transition: 1s;
+				transform: translateX(100%);
+				overflow: auto;
+			}
+			.m_menu.view {
+				transform: translateX(0);
+			}
+			.m_menu .m_menu_wrap {
+				padding: 32px 15px;
+			}
+			.m_menu .m_menu_wrap .btn1 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.m_menu .m_menu_wrap .btn1 img {
+			}
+			.m_menu .m_menu_wrap .btn1 button {
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+			.m_menu .m_menu_wrap .btn2 {
+				width: 80%;
+
+				margin-top: 30px;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 10px;
+			}
+			.m_menu .m_menu_wrap .btn2 div {
+				background: #222;
+				padding: 5px 15px;
+				color: #fff;
+				border-radius: 50px;
+			}
+			.m_menu .m_menu_wrap .main_menu {
+				padding: 22px 0 30px 0;
+				text-align: left;
+				border-bottom: 1px solid #ededed;
+			}
+			.m_menu .m_menu_wrap .main_menu > li {
+				width: 100%;
+				font-weight: 500;
+				padding: 8px 0;
+			}
+			.m_menu .m_menu_wrap .main_menu > .bold {
+				font-weight: 700;
+			}
+			.m_menu .m_menu_wrap .main_menu > li p {
+				font-size: 15px;
+				display: flex;
+				justify-content: space-between;
+			}
+			.m_menu .m_menu_wrap .main_menu > li p span {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+			}
+			.m_menu .m_menu_wrap .main_menu li.view p span {
+				transform: rotate(180deg);
+			}
+			.m_menu .m_menu_wrap .main_menu > li p a {
+			}
+			.m_menu .m_menu_wrap .main_menu > li ul {
+				padding: 10px 0 0 15px;
+				display: none;
+			}
+			.m_menu .m_menu_wrap .main_menu li.view ul {
+				display: block;
+			}
+			.m_menu .m_menu_wrap .main_menu > li ul li {
+				width: 100%;
+				padding: 5px 0;
+			}
+			.m_menu .m_menu_wrap .main_menu > li ul li a {
+				font-size: 13px;
+				color: #999;
+				font-weight: 400;
+			}
+			.m_menu .m_menu_wrap .notice {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				text-align: left;
+				padding: 22px 0;
+				border-bottom: 1px solid #ededed;
+			}
+			.m_menu .m_menu_wrap .notice div {
+				padding: 8px 0;
+			}
+			.m_menu .m_menu_wrap .notice div a {
+				font-size: 13px;
+				font-weight: 400;
+			}
+			.m_menu .m_menu_wrap .call {
+				padding: 30px 0;
+				text-align: left;
+				border-bottom: 1px solid #ededed;
+			}
+			.m_menu .m_menu_wrap .call h2 {
+				font-size: 15px;
+				font-weight: 600;
+				padding-bottom: 10px;
+			}
+			.m_menu .m_menu_wrap .call p {
+				font-size: 13px;
+				font-weight: 400;
+			}
+			.m_menu .m_menu_wrap .reserved {
+				font-size: 12px;
+				font-weight: 300;
+				padding-top: 15px;
+			}
+			.m_menubg {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: #000c;
+				backdrop-filter: blur(4px);
+				-webkit-backdrop-filter: blur(4px);
+				z-index: 99;
+				transform: translateX(100%);
+				opacity: 0;
+				transition: opacity 1s 0s, transform 0s 1s;
+			}
+			.m_menubg.view {
+				transform: translateX(0);
+				opacity: 1;
+				transition: opacity 1s 0s, transform 0s 0s;
+			}
+			.main1 {
+				padding: 50px 0;
+				border-bottom: 1px solid #ededed;
+				max-width: 1920px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			.slider1 {
+				max-width: 1280px;
+				height: 600px;
+				position: relative;
+				margin: 0 auto;
+			}
+			.slider1 .swiper-slide {
+				height: 600px;
+				overflow: hidden;
+				opacity: 0.5;
+				position: relative;
+				border-radius: 40px;
+			}
+			.slider1 .swiper-slide::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 200px;
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+			}
+			.slider1 .swiper-slide-active {
+				opacity: 1;
+			}
+			.slider1 .swiper img {
+				position: relative;
+				width: 100%;
+			}
+			.slider1 .swiper-slide .box .boxtitle {
+				position: absolute;
+				top: unset;
+				bottom: 50px;
+				left: 50px;
+			}
+			.slider1 .swiper-slide .box .boxtitle > .name {
+				width: 100%;
+				color: #fff;
+				font-size: 42px;
+				font-weight: 700;
+			}
+			.slider1 .swiper-slide .box .boxtitle .sub {
+				color: #fff;
+				font-size: 20px;
+				font-weight: 400;
+				text-align: left;
+			}
+			.slider1 .swiper-slide .box {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.slider1 .swiper-slide img {
+				width: 100%;
+				height: 100%;
+			}
+			.slider1 .swiper-slide .main1_mb {
+				display: none;
+			}
+			.slider1 .swiper-slide .main1_pc {
+				display: block;
+			}
+			.slider1 .swiper-slide .main1_img1 {
+				position: relative;
+				transform: translateY(-10%);
+				z-index: -1;
+			}
+			.slider1 .swiper-pagination {
+				bottom: 55px;
+				right: 75px;
+				left: unset;
+				width: 110px;
+				height: 10px;
+			}
+			.slider1 .swiper-pagination-bullet {
+				background-color: white;
+				opacity: 0.3;
+				width: 10px;
+				height: 10px;
+			}
+			.slider1 .swiper-pagination-bullet-active {
+				opacity: 1;
+			}
+			.slider1 .swiper-scrollbar {
+				background: #fff;
+				display: none;
+			}
+			.slider1 .swiper-scrollbar .swiper-scrollbar-drag {
+				background: #6d6d6d;
+			}
+			.slider1 .swiper-scrollbar.swiper-scrollbar-horizontal {
+				height: 2px;
+				width: 90% !important;
+				bottom: 15px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			/* .slider1 .swiper-container-horizontal > .swiper-scrollbar {
+				border-radius: 10px;
+				bottom: 10%;
+				left: 50%;
+				transform: translateX(-50%);
+			} */
+			.main2 {
+				margin-top: 120px;
+			}
+			.main2 .main2_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.titles {
+				font-size: 32px;
+				font-weight: 700;
+				text-align: left;
+			}
+			.main2 .main2_wrap .main2_btn {
+				margin-top: 32px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+			.main2 .main2_wrap .main2_btn button {
+				font-weight: 400;
+				border-radius: 50px;
+				background: none;
+				padding: 10px 22px;
+				cursor: pointer;
+				border: 2px solid black;
+			}
+			.main2 .main2_wrap .main2_btn .best {
+			}
+			.main2 .main2_wrap .main2_btn .one {
+				opacity: 0.3;
+			}
+			.main2 .main2_wrap .main2_btn .set {
+				opacity: 0.3;
+			}
+			.main2 .slider_wrap {
+				margin-top: 32px;
+				position: relative;
+			}
+			.main2 .slider2_2,
+			.main2 .slider2_3 {
+				display: none;
+			}
+			.main2 .slider {
+				margin: 0 auto;
+				width: 100%;
+				overflow: hidden;
+			}
+			.main2 .swiper-wrapper img {
+				width: 100%;
+			}
+			.main2 .slider .swiper-slide a {
+				position: relative;
+				width: 100%;
+			}
+			.main2 .slider .swiper-slide a::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.main2 .slider .swiper-slide a:hover::before {
+				background: rgba(0, 0, 0, 0.3);
+			}
+			.main2 .slider .swiper-slide a:hover .title {
+				max-height: 500px;
+			}
+			.main2 .slider .swiper-slide a img {
+			}
+			.main2 .slider .swiper-slide .title {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				padding-top: 16px;
+				width: 90%;
+				color: #fff;
+				max-height: 0;
+				overflow: hidden;
+			}
+			.main2 .slider .swiper-slide .title .color {
+				margin-bottom: 8px;
+			}
+			.main2 .slider .swiper-slide .title .color li {
+				width: 12px;
+				height: 12px;
+				background: black;
+				margin-right: 3px;
+				border: 1px solid #d1d1d1;
+			}
+			.main2 .slider .swiper-slide .title .color li:nth-child(2) {
+				background: white;
+			}
+			.main2 .slider .swiper-slide .title .color li:nth-child(3) {
+				background: gray;
+			}
+			.main2 .slider .swiper-slide .title .color li:nth-child(4) {
+				background: pink;
+			}
+			.main2 .slider .swiper-slide .title .name {
+				font-size: 16px;
+				font-weight: 500;
+			}
+			.main2 .slider .swiper-slide .title .sub {
+				font-size: 14px;
+				font-weight: 400;
+				color: #d1d1d1;
+				margin-top: 8px;
+			}
+			.main2 .slider .swiper-button-prev,
+			.main2 .slider .swiper-button-next {
+				width: 14px;
+				height: 30px;
+				padding: 15px 12px 15px 10px;
+				color: #111 !important;
+				background: #ededed;
+				border-radius: 50px;
+				top: calc(50% + 32px);
+				transform: scale(2) translateY(-50%);
+			}
+			.main2 .slider .swiper-button-next {
+				right: -62px;
+				left: unset;
+				padding: 15px 10px 15px 12px;
+			}
+			.main2 .slider .swiper-button-prev {
+				left: -62px;
+			}
+			.main2 .slider .swiper-button-prev:after,
+			.swiper-button-next:after {
+				font-size: 1.1rem !important;
+				font-weight: 600 !important;
+			}
+			.main2 .main2_wrap .more {
+				margin-top: 32px;
+			}
+			.main2 .main2_wrap .more a {
+				padding: 14px 65px;
+				font-size: 16px;
+				border: 2px solid #dbdbdb;
+				border-radius: 50px;
+			}
+			.main2 .main2_wrap .more a:hover {
+				border: 2px solid #acacac;
+			}
+
+			.main3 {
+				padding-top: 120px;
+			}
+			.main3 .main3_wrap {
+				/* display: grid;
+				grid-template-columns: 44% 53%;
+				gap: 2%; */
+				/* height: 100vh;
+				overflow: hidden; */
+				position: relative;
+			}
+			.main3 > .title {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding-bottom: 32px;
+			}
+			.main3 .main3_wrap .leftbox {
+				display: block;
+				width: 44%;
+				height: 100vh;
+				display: inline-block;
+			}
+			.main3 .main3_wrap .left {
+				width: 44%;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.main3 .main3_wrap .left img {
+				width: 100%;
+				height: 100vh;
+			}
+			.main3.scroll .main3_wrap .left {
+				position: fixed;
+				width: 44%;
+			}
+			.main3.scroll2 .main3_wrap .left {
+				position: absolute;
+				top: unset;
+				bottom: 0;
+				left: 0;
+			}
+			.main3 .main3_wrap .left::before {
+				content: '';
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+				position: absolute;
+			}
+
+			.main3 .main3_wrap .left .title {
+				position: absolute;
+				color: #fff;
+				font-weight: 400;
+				width: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.main3 .main3_wrap .left .title .name {
+				font-size: 60px;
+			}
+			.main3 .main3_wrap .left .title .sub {
+				font-size: 16px;
+			}
+			.main3 .main3_wrap .right {
+				/* overflow: auto; */
+				width: 53%;
+				display: inline-block;
+			}
+			.main3 .main3_wrap .right::-webkit-scrollbar {
+				width: 8px;
+			}
+			.main3 .main3_wrap .right::-webkit-scrollbar-thumb {
+				height: 30%;
+				background-color: #111;
+				border-radius: 10px;
+			}
+			.main3 .main3_wrap .right::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			.main3 .main3_wrap .right .cc {
+				width: 50%;
+				padding: 0 2% 0 0;
+				padding-bottom: 32px;
+			}
+			.main3 .main3_wrap .right .cc a {
+				width: 100%;
+			}
+			.main3 .main3_wrap .right .cc a img {
+				width: 100%;
+			}
+			.main3 .main3_wrap .right .cc .title {
+				text-align: left;
+				padding-top: 16px;
+				width: 90%;
+				color: black;
+			}
+			.main3 .main3_wrap .right .cc .title .color li {
+				width: 12px;
+				height: 12px;
+				background: black;
+				margin-right: 3px;
+				border: 1px solid #d1d1d1;
+			}
+			.main3 .main3_wrap .right .cc .color li:nth-child(2) {
+				background: white;
+			}
+			.main3 .main3_wrap .right .cc .color li:nth-child(3) {
+				background: gray;
+			}
+			.main3 .main3_wrap .right .cc .color li:nth-child(4) {
+				background: pink;
+			}
+			.main3 .main3_wrap .right .cc .title .name {
+				padding-top: 2px;
+				font-size: 15px;
+				font-weight: 500;
+			}
+			.main3 .main3_wrap .right .cc .title .sub {
+				padding-top: 2px;
+				font-size: 16px;
+				color: #505050;
+				font-weight: 400;
+			}
+			.main3 .main3_wrap .right .cc .title .price {
+				font-size: 18px;
+				padding-top: 10px;
+			}
+
+			.main3m {
+				display: none;
+				margin-top: 50px;
+			}
+			.main3m .main3m_wrap {
+			}
+			.main3m > .title {
+				max-width: 1280px;
+				margin: 0 auto;
+				padding-bottom: 32px;
+			}
+			.main3m .main3m_wrap .top {
+				width: 100%;
+				height: 50%;
+				position: relative;
+			}
+			.main3m .main3m_wrap .top img {
+				width: 100%;
+				height: 100%;
+			}
+			.main3m .main3m_wrap .top::before {
+				content: '';
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+				position: absolute;
+			}
+
+			.main3m .main3m_wrap .top .title {
+				position: absolute;
+				color: #fff;
+				font-weight: 300;
+				width: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.main3m .main3m_wrap .top .title .name {
+				font-weight: 500;
+				font-size: 48px;
+			}
+			.main3m .main3m_wrap .top .title .sub {
+				font-size: 24px;
+			}
+			.main3m .main3m_wrap .bottom {
+				/* overflow: auto; */
+				width: 100%;
+				display: inline-block;
+				background: rgba(0, 0, 0, 0.6);
+			}
+			.main3m .main3m_wrap .slider_wrap {
+				margin: 30px 0 0 15px;
+				position: relative;
+			}
+			.main3m .main3m_wrap .slider {
+				margin: 0 auto;
+				width: 100%;
+				overflow: hidden;
+			}
+			.main3m .main3m_wrap .swiper-wrapper img {
+				width: 100%;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide a {
+				position: relative;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide a:hover::before {
+				background: rgba(0, 0, 0, 0.3);
+			}
+			.main3m .main3m_wrap .slider .swiper-slide a:hover .title {
+				max-height: 500px;
+			}
+			.main3m .main3m_wrap .bottom .title {
+				text-align: left;
+				padding-top: 16px;
+				width: 90%;
+				color: #fff;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .color {
+				margin-bottom: 8px;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .color li {
+				width: 10px;
+				height: 10px;
+				background: black;
+				margin-right: 3px;
+				border: 1px solid #d1d1d1;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .color li:nth-child(2) {
+				background: white;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .color li:nth-child(3) {
+				background: gray;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .color li:nth-child(4) {
+				background: pink;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .name1 {
+				font-size: 12px;
+				font-weight: 500;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .name {
+				font-size: 12px;
+				font-weight: 300;
+				margin-top: 3px;
+				color: #ededed;
+			}
+			.main3m .main3m_wrap .slider .swiper-slide .title .sub {
+				font-size: 14px;
+				font-weight: 400;
+				color: #d1d1d1;
+				margin-top: 8px;
+			}
+			.main3m .main3m_wrap .more {
+				margin: 25px 0 30px 0;
+				color: #dbdbdb;
+			}
+			.main3m .main3m_wrap .more a {
+				padding: 6px 30px;
+				font-size: 14px;
+				border: 1px solid #dbdbdb;
+				border-radius: 50px;
+			}
+			.main4 {
+				padding-top: 120px;
+			}
+			.main4 .main4_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.main4 .main4_wrap .title {
+			}
+			.main4 .main4_wrap .main4_btn {
+				margin-top: 32px;
+				display: flex;
+				justify-content: left;
+				align-items: center;
+				overflow: hidden;
+				gap: 8px;
+			}
+			.main4 .main4_wrap .main4_btn button {
+				font-weight: 400;
+				border-radius: 50px;
+				background: none;
+				padding: 10px 0px;
+				cursor: pointer;
+				opacity: 0.3;
+				border: 2px solid black;
+			}
+			.main4 .main4_wrap .main4_btn .mbt.btnColorn {
+				opacity: 0.3;
+			}
+			.main4 .main4_wrap .main4_btn .mbt.btnColory {
+				opacity: 1;
+			}
+			.main4 .main4_wrap .main4_btn button:first-child {
+				opacity: 1;
+			}
+
+			.main4 .m3slider.dpn {
+				display: none;
+			}
+			.main4 .m3slider.dpb {
+				display: block;
+			}
+			.main4 .slider_wrap {
+				margin-top: 32px;
+			}
+			.main4 .slider3_2,
+			.main4 .slider3_3,
+			.main4 .slider3_4 {
+				display: none;
+			}
+			.main4 .slider {
+				margin: 0 auto;
+				width: 100%;
+				overflow: hidden;
+			}
+			.main4 .slider3_kw {
+				width: 63%;
+				overflow: hidden;
+				margin: unset;
+			}
+			.main4 .swiper-wrapper img {
+				width: 100%;
+			}
+			.main4 .slider .swiper-slide a {
+				width: 100%;
+			}
+			.main4 .slider .swiper-slide .title {
+				text-align: left;
+				padding-top: 16px;
+				width: 90%;
+				color: black;
+			}
+			.main4 .slider .swiper-slide .title .color {
+			}
+			.main4 .slider .swiper-slide .title .color li {
+				width: 12px;
+				height: 12px;
+				background: black;
+				margin-right: 3px;
+				border: 1px solid #d1d1d1;
+			}
+			.main4 .slider .swiper-slide .title .color li:nth-child(2) {
+				background: white;
+			}
+			.main4 .slider .swiper-slide .title .color li:nth-child(3) {
+				background: gray;
+			}
+			.main4 .slider .swiper-slide .title .color li:nth-child(4) {
+				background: pink;
+			}
+			.main4 .slider .swiper-slide .title .name {
+				margin-top: 2px;
+				font-size: 15px;
+				font-weight: 500;
+			}
+			.main4 .slider .swiper-slide .title .sub {
+				margin-top: 2px;
+				font-size: 16px;
+				color: #505050;
+				font-weight: 400;
+			}
+			.main4 .slider .swiper-slide .title .price {
+				font-size: 18px;
+				margin-top: 10px;
+			}
+			.main4 .slider .swiper-button-prev,
+			.main4 .slider .swiper-button-next {
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				background-color: #e5e5e5;
+				/* opacity: 0.5; */
+				padding: 15px 8px 15px 5px;
+				color: black !important;
+				top: 100px;
+				left: unset;
+				right: 0px;
+			}
+			.main4 .slider .swiper-button-next {
+				padding: 15px 5px 15px 8px;
+			}
+			.main4 .slider .swiper-button-prev {
+				right: 60px;
+			}
+			.main4 .slider .swiper-button-prev:after,
+			.main4 .slider .swiper-button-next:after {
+				font-size: 1.1rem !important;
+				font-weight: 600 !important;
+			}
+			.main4 .main4_wrap .more {
+				margin-top: 32px;
+			}
+			.main4 .main4_wrap .more a {
+				padding: 14px 65px;
+				font-size: 16px;
+				border: 2px solid #dbdbdb;
+				border-radius: 50px;
+			}
+			.main4 .main4_wrap .more a:hover {
+				border: 2px solid #acacac;
+			}
+			.main5 {
+				margin-top: 120px;
+			}
+			.main5 .main5_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+			}
+			.main5 .main5_wrap > .title {
+				padding-bottom: 32px;
+				border-bottom: 1px solid #ededed;
+			}
+			.main5 .main5_wrap ul {
+			}
+			.main5 .main5_wrap ul .grid {
+				width: 100%;
+				padding: 32px 0;
+				border-bottom: 1px solid #ededed;
+				display: flex;
+				justify-content: space-between;
+				gap: 2%;
+				text-align: left;
+			}
+			.main5 .main5_wrap ul .grid .img {
+				max-width: 224px;
+			}
+			.main5 .main5_wrap ul .grid .img img {
+				width: 100%;
+			}
+			.main5 .main5_wrap ul .grid .info {
+				width: 60%;
+			}
+			.main5 .main5_wrap ul .grid .info .title {
+				padding-top: 32px;
+			}
+			.main5 .main5_wrap ul .grid .info .title .name {
+				font-size: 12px;
+				color: #222;
+				font-weight: 500;
+				margin: 0 0 5px;
+			}
+			.main5 .main5_wrap ul .grid .info .title .point {
+				margin: 0 0 20px;
+			}
+			.main5 .main5_wrap ul .grid .info .title .point::before {
+				content: '★★★★★';
+				color: #f67066;
+			}
+			.main5 .main5_wrap ul .grid .info .title .sub {
+				font-size: 12px;
+				color: #222;
+				font-weight: 500;
+			}
+			.main5 .main5_wrap ul .grid .cust {
+				padding-top: 32px;
+				font-size: 12px;
+				color: #222;
+				font-weight: 500;
+			}
+			.main5 .main5_wrap ul .grid .custm {
+				display: none;
+				padding-top: 0;
+				font-size: 12px;
+				color: #222;
+				font-weight: 500;
+			}
+			.main5 .main5_wrap .more {
+				margin-top: 32px;
+			}
+			.main5 .main5_wrap .more a {
+				padding: 14px 65px;
+				font-size: 16px;
+				border: 2px solid #dbdbdb;
+				border-radius: 50px;
+			}
+			.main5 .main5_wrap .more a:hover {
+				border: 2px solid #acacac;
+			}
+			footer {
+				margin: 120px 0 80px 0;
+				overflow: hidden;
+			}
+			footer .ft1 {
+				border-top: 1px solid #ededed;
+				border-bottom: 1px solid #ededed;
+				padding: 0 32px;
+			}
+			footer .ft1 .ft1_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+				text-align: left;
+			}
+			footer .ft1 .ft1_wrap ul {
+				display: flex;
+				align-items: center;
+			}
+			footer .ft1 .ft1_wrap ul li {
+				padding: 10px 30px;
+			}
+			footer .ft1 .ft1_wrap ul li a {
+				font-size: 15px;
+				font-weight: 500;
+			}
+			footer .ft1 .ft1_wrap ul li a:hover {
+				opacity: 0.5;
+			}
+			footer .ft1 .ft1_wrap ul li:first-child {
+				padding-left: 0;
+			}
+
+			footer .ft1 .ft1_wrap ul span {
+				display: inline-block;
+				width: 1px;
+				height: 10px;
+				background: #ededed;
+			}
+			footer .ft2 {
+				margin-top: 32px;
+				padding: 0 32px;
+			}
+			footer .ft2 .ft2_wrap {
+				max-width: 1280px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 {
+				text-align: left;
+				max-width: 700px;
+				margin-top: 13px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .logo {
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .logo img {
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .text {
+				margin-top: 32px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .text li {
+				font-size: 13px;
+				padding: 0 12px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .text .fpn {
+				padding-left: 0;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .text span {
+				display: inline-block;
+				width: 1px;
+				height: 10px;
+				background: #ededed;
+				margin-top: 5px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon {
+				margin-top: 62px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon li {
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon li a {
+				padding: 6px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon li:first-child a {
+				padding-right: 2px;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon li a img {
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon li a img:hover {
+				opacity: 0.5;
+			}
+			footer .ft2 .ft2_wrap .ft2_1 .icon span {
+				display: inline-block;
+				width: 1px;
+				height: 10px;
+				background: #ededed;
+				margin-top: 17px;
+			}
+			footer .ft2 .ft2_wrap .ft2_2 {
+				text-align: left;
+			}
+			footer .ft2 .ft2_wrap .ft2_2 h2 {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: normal;
+				margin-bottom: 16px;
+			}
+			footer .ft2 .ft2_wrap .ft2_2 h2:nth-child(3) {
+				margin-top: 38px;
+			}
+			footer .ft2 .ft2_wrap .ft2_2 p {
+			}
+			footer .ft2 .ft2_wrap .ft2_3 {
+				text-align: left;
+			}
+			footer .ft2 .ft2_wrap .ft2_3 h2 {
+				font-size: 18px;
+				font-weight: 500;
+				margin-bottom: 8px;
+			}
+
+			footer .ft2 .ft2_wrap .ft2_3 li {
+				display: block;
+				padding: 2px 0;
+			}
+			footer .ft2 .ft2_wrap .ft2_3 li a {
+			}
+			footer .ft2 .ft2_wrap .ft2_3 li a:hover {
+				opacity: 0.5;
+			}
+			footer .mf {
+				display: none;
+			}
+			footer .mft1_grid {
+				margin: 15px 15px 0;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				text-align: left;
+				margin-bottom: 30px;
+			}
+			footer .mft1_grid div:first-child {
+				border-right: 1px solid #ededed;
+			}
+			footer .mft1_grid div:nth-child(2) {
+				margin-left: 15px;
+			}
+			footer .mft1_grid div h2 {
+				font-weight: 500;
+			}
+			footer .mft1_grid div p {
+				font-size: 12px;
+				font-weight: 400;
+				color: #989898;
+				margin-top: 10px;
+			}
+			footer .mft2 {
+				background: #222;
+				color: white;
+			}
+			footer .mft2 .mft2_wrap {
+				padding: 30px 0 30px 15px;
+				text-align: left;
+			}
+			footer .mft2 .mft2_wrap img {
+				display: block;
+			}
+			footer .mft2 .mft2_wrap .text {
+				margin-top: 15px;
+			}
+			footer .mft2 .mft2_wrap .text p {
+				font-size: 12px;
+				font-weight: 400;
+			}
+			footer .mft2 .mft2_wrap .text .info {
+				margin-top: 30px;
+				display: flex;
+				align-items: center;
+			}
+			footer .mft2 .mft2_wrap .text .info li {
+				padding: 0 10px;
+			}
+			footer .mft2 .mft2_wrap .text .info li:first-child {
+				padding: 0 10px 0 0;
+			}
+			footer .mft2 .mft2_wrap .text .info span {
+				width: 1px;
+				height: 8px;
+				background: white;
+				display: inline-block;
+			}
+			footer .mft2 .mft2_wrap .text .info li a {
+				font-size: 12px;
+			}
+			footer .mft2 .mft2_wrap .text .icon {
+				margin-top: 15px;
+			}
+			footer .mft2 .mft2_wrap .text .icon li {
+				padding-right: 8px;
+			}
+			footer .mft2 .mft2_wrap .text .icon li a {
+				background: #414141;
+				border-radius: 50px;
+				width: 32px;
+				height: 32px;
+				padding: 4px;
+			}
+			footer .mft2 .mft2_wrap .text .copy {
+				color: #c1c1c1;
+				font-size: 11px;
+				font-weight: 400;
+				margin: 15px 0 0;
+			}
+			#topBtn {
+				position: fixed;
+				width: 32px;
+				height: 32px;
+				border-radius: 50px;
+				background: #ededed;
+				bottom: 60px;
+				right: 20px;
+				z-index: 99;
+				opacity: 0;
+				transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+				cursor: pointer;
+			}
+			#topBtn.show {
+				opacity: 0.7;
+				visibility: visible;
+			}
+			.mb {
+				display: none;
+			}
+			.pcc1 {
+				display: none;
+			}
+			@media only screen and (min-width: 100px) and (max-width: 1024px) {
+				.pcc,
+				.hd1 {
+					display: none;
+				}
+				.hd2 {
+					padding: 0 10px;
+				}
+				.fixinner {
+					opacity: 0.9;
+				}
+				.hd2 .hd2_wrap .menu_wrap .menu {
+					display: none;
+				}
+				.hd2 .mb {
+					display: inline-block;
+				}
+				.hd2 .hd2_wrap .submenu_bg,
+				.hd2 .iconbox .icon .i_submenu {
+					display: none !important;
+				}
+				.hd2 .hd2_wrap .menu_wrap {
+					display: unset;
+				}
+				.hd2 .iconbox {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+				.hd2 .iconbox .icon > li {
+					padding: 0 10px;
+				}
+				.hd2 .iconbox .icon .menubtn .ib1,
+				.ib2 {
+					display: none;
+				}
+				.hd2 .iconbox .icon .menubtn .ib3 {
+					display: block;
+				}
+				.main1 {
+					padding: 0px 0;
+					border-bottom: none;
+				}
+				.slider1 .swiper-slide {
+					height: 600px;
+					overflow: hidden;
+					position: relative;
+					border-radius: 0px;
+					opacity: 1;
+				}
+				.slider1 .swiper-pagination {
+					display: none;
+				}
+				.slider1 .swiper-scrollbar {
+					display: block;
+				}
+				.slider1 .swiper-slide .main1_mb {
+					display: block;
+				}
+				.slider1 .swiper-slide .main1_pc {
+					display: none;
+				}
+				.titles {
+					text-align: center;
+					/* font-size: 24px; */
+				}
+				.main2 .slider .swiper-button-prev,
+				.main2 .slider .swiper-button-next,
+				.main4 .slider .swiper-button-prev,
+				.main4 .slider .swiper-button-next {
+					display: none;
+				}
+				.main2,
+				.main5 {
+					margin-top: 50px;
+				}
+
+				.main2 .main2_wrap .main2_btn {
+					margin-top: 15px;
+				}
+				.main2 .main2_wrap .main2_btn button {
+					padding: 5px 20px;
+				}
+				.main2 .slider_wrap {
+					margin: 15px 0 0 15px;
+				}
+				.main2 .slider .swiper-slide .title {
+					position: unset;
+					top: unset;
+					left: unset;
+					transform: unset;
+					text-align: left;
+					padding-top: 10px;
+					width: 90%;
+					color: #fff;
+					max-height: unset;
+					overflow: unset;
+				}
+				.main2 .slider .swiper-slide a::before {
+					display: none;
+				}
+				.main2 .slider .swiper-slide .title .name {
+					font-size: 12px;
+					color: #111;
+					font-weight: 500;
+				}
+				.main2 .slider .swiper-slide .title .sub {
+					font-size: 12px;
+					font-weight: 400;
+					color: #111;
+					margin-top: 8px;
+				}
+				.main2 .slider .swiper-slide .title .sub span {
+					display: none;
+				}
+				.main2 .main2_wrap .more {
+					margin-top: 25px;
+				}
+				.main2 .main2_wrap .more a {
+					padding: 6px 30px;
+					font-size: 14px;
+					border: 1px solid #dbdbdb;
+				}
+				.main3 {
+					display: none;
+				}
+				.main3m {
+					display: block;
+				}
+				.main4 {
+					padding-top: 50px;
+				}
+				.main4 .main4_wrap .main4_btn {
+					margin: 15px 0 0 15px;
+				}
+				.main4 .main4_wrap .main4_btn button {
+					padding: 5px 0px;
+				}
+				.main4 .slider_wrap {
+					margin: 15px 0 0 15px;
+				}
+				.main4 .slider3_kw {
+					width: 70%;
+					overflow: hidden;
+					margin: 0 auto;
+				}
+				.main4 .slider .swiper-slide .title .name {
+					font-size: 12px;
+					color: #111;
+					font-weight: 500;
+				}
+				.main4 .slider .swiper-slide .title .sub {
+					display: none;
+				}
+				.main4 .slider .swiper-slide .title .price {
+					font-size: 12px;
+					font-weight: 400;
+					color: #111;
+					margin-top: 8px;
+				}
+				.main4 .main4_wrap .more {
+					margin-top: 25px;
+				}
+				.main4 .main4_wrap .more a {
+					padding: 6px 30px;
+					font-size: 14px;
+					border: 1px solid #dbdbdb;
+				}
+				.main4 .main4_wrap .more a:hover {
+					border: 1px solid #dbdbdb;
+				}
+				.main5 .main5_wrap > .title {
+					padding-bottom: 25px;
+					margin: 0 15px;
+					border-bottom: 1px solid #ededed;
+				}
+				.main5 .main5_wrap ul {
+					margin: 0 15px;
+				}
+				.main5 .main5_wrap ul .grid {
+					padding: 15px 0;
+					display: block;
+					text-align: left;
+					position: relative;
+				}
+				.main5 .main5_wrap ul .grid .img {
+					width: 30%;
+					margin-right: 2%;
+				}
+				.main5 .main5_wrap ul .grid .info {
+					width: 65%;
+				}
+				.main5 .main5_wrap ul .grid .info .title {
+					padding-top: 0px;
+				}
+				.main5 .main5_wrap ul .grid .info .title .name {
+					color: #989898;
+					margin: 0 0 0px;
+				}
+				.main5 .main5_wrap ul .grid .info .title .point {
+					margin: 0 0 8px;
+				}
+				.main5 .main5_wrap ul .grid .custm {
+					display: block;
+					padding-top: 0;
+					font-size: 11px;
+					color: #989898;
+					position: absolute;
+					bottom: 15px;
+				}
+				.main5 .main5_wrap ul .grid .cust {
+					display: none;
+				}
+				.main5 .main5_wrap .more {
+					margin-top: 25px;
+				}
+				.main5 .main5_wrap .more a {
+					padding: 6px 30px;
+					font-size: 14px;
+					border: 1px solid #dbdbdb;
+				}
+				.main5 .main5_wrap .more a:hover {
+					border: 1px solid #dbdbdb;
+				}
+				footer {
+					margin: 50px 0 0px 0;
+					border-top: 1px solid #ededed;
+					overflow: hidden;
+				}
+				footer .ft1,
+				footer .ft2 {
+					display: none;
+				}
+				footer .mf {
+					display: block;
+				}
+			}
+			@media only screen and (min-width: 100px) and (max-width: 480px) {
+				.hd2 .iconbox .icon > li {
+					padding: 0 0 0 5px;
+				}
+				.hd2 .iconbox .icon > li a {
+				}
+				.hd2 .iconbox .mblogo {
+					width: 40%;
+				}
+				.hd2 .iconbox .mblogo a img {
+					width: 100%;
+				}
+				.slider1 .swiper-slide img {
+					height: 600px;
+				}
+				.slider1 .swiper-slide .box .boxtitle {
+					width: 90%;
+					bottom: 40px;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+				.slider1 .swiper-slide .box .boxtitle > .name {
+					font-size: 24px;
+					text-align: left;
+				}
+				.slider1 .swiper-slide .box .boxtitle .sub {
+					width: 100%;
+					font-size: 12px;
+					text-align: left;
+				}
+				.main2,
+				.main5 {
+					margin-top: 50px;
+				}
+
+				.main2 .main2_wrap .main2_btn {
+					margin-top: 15px;
+				}
+				.main2 .main2_wrap .main2_btn button {
+					padding: 5px 20px;
+				}
+				.main2 .slider_wrap {
+					margin: 15px 0 0 15px;
+				}
+				.main2 .slider .swiper-slide .title {
+					position: unset;
+					top: unset;
+					left: unset;
+					transform: unset;
+					text-align: left;
+					padding-top: 10px;
+					width: 90%;
+					color: #fff;
+					max-height: unset;
+					overflow: unset;
+				}
+				.main2 .slider .swiper-slide a::before {
+					display: none;
+				}
+				.main2 .slider .swiper-slide .title .name {
+					font-size: 12px;
+					color: #111;
+					font-weight: 500;
+				}
+				.main2 .slider .swiper-slide .title .sub {
+					font-size: 12px;
+					font-weight: 400;
+					color: #111;
+					margin-top: 8px;
+				}
+				.main2 .slider .swiper-slide .title .sub span {
+					display: none;
+				}
+				.main2 .main2_wrap .more {
+					margin-top: 25px;
+				}
+				.main2 .main2_wrap .more a {
+					padding: 6px 30px;
+					font-size: 14px;
+					border: 1px solid #dbdbdb;
+				}
+				.main2 .main2_wrap .more a:hover {
+					border: 1px solid #dbdbdb;
+				}
+				.main3m .main3m_wrap .top .title .name {
+					font-weight: 500;
+					font-size: 30px;
+				}
+				.main3m .main3m_wrap .top .title .sub {
+					font-size: 14px;
+				}
+				.main4 .slider3_kw {
+					width: 100%;
+					overflow: hidden;
+					margin: unset;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="hd_wrap">
+				<div class="hd1">
+					<div class="hd1_wrap">
+						<div class="logo">
+							<a href="#">
+								<img src="img/logo.png" alt="" />
+							</a>
+						</div>
+						<div class="search">
+							<div class="search_wrap">
+								<a href="#">
+									<input type="text" autocomplete="off" aria-expanded="false" />
+									<button class="searchBtn">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="19"
+											height="19"
+											viewBox="0 0 19 19"
+											fill="none"
+										>
+											<path
+												fill-rule="evenodd"
+												clip-rule="evenodd"
+												d="M12.7382 7.6923C12.7382 10.6661 10.5127 13.0769 7.76741 13.0769C5.02211 13.0769 2.79661 10.6661 2.79661 7.6923C2.79661 4.71846 5.02211 2.30769 7.76741 2.30769C10.5127 2.30769 12.7382 4.71846 12.7382 7.6923ZM12.4138 13.5096C11.1684 14.6778 9.54411 15.3846 7.76741 15.3846C3.84555 15.3846 0.66626 11.9406 0.66626 7.6923C0.66626 3.44396 3.84555 0 7.76741 0C11.6893 0 14.8686 3.44396 14.8686 7.6923C14.8686 9.18099 14.4782 10.5709 13.8022 11.7485L18.9256 17.3682L17.4192 19L12.4138 13.5096Z"
+												fill="#1D1D1D"
+											/>
+										</svg>
+									</button>
+								</a>
+							</div>
+						</div>
+						<ul class="hd1_menu">
+							<li><a href="#">로그인</a></li>
+							<li><a href="#">회원가입</a></li>
+							<li><a href="#">나의쇼핑</a></li>
+							<li><a href="#">고객센터</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="hd2">
+					<div class="hd2_wrap">
+						<div class="menu_wrap" id="menu">
+							<div class="menu">
+								<ul class="mainmenu">
+									<li>
+										<a href="#" class="mfw7">BEST</a>
+										<ul class="sub_menu">
+											<li><a href="#">BEST</a></li>
+											<li><a href="#">1 + N</a></li>
+											<li><a href="#">SET</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#" class="mfw7">1+1 이벤트</a>
+									</li>
+									<li><a href="#" class="mfw7">특가세일</a></li>
+									<li><a href="#" class="mfw7">코디세트</a></li>
+									<li>
+										<a href="#">아우터</a>
+										<ul class="sub_menu">
+											<li><a href="#">패팅, 점퍼</a></li>
+											<li><a href="#">코트</a></li>
+											<li><a href="#">재킷</a></li>
+											<li><a href="#">가디건</a></li>
+											<li><a href="#">HAND MADE</a></li>
+											<li><a href="#">양털, 아노락</a></li>
+											<li><a href="#">후드집업</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">수트</a>
+										<ul class="sub_menu">
+											<li><a href="#">ALL</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">상의</a>
+										<ul class="sub_menu">
+											<li><a href="#">니트</a></li>
+											<li><a href="#">가디건</a></li>
+											<li><a href="#">셔츠</a></li>
+											<li><a href="#">티셔츠</a></li>
+											<li><a href="#">후드</a></li>
+											<li><a href="#">맨투맨</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">바지</a>
+										<ul class="sub_menu">
+											<li><a href="#">청바지</a></li>
+											<li><a href="#">슬렉스</a></li>
+											<li><a href="#">벤딩팬츠</a></li>
+											<li><a href="#">치노팬츠</a></li>
+											<li><a href="#">조거팬츠</a></li>
+											<li><a href="#">반바지</a></li>
+										</ul>
+									</li>
+									<li><a href="#">슈즈</a></li>
+									<li>
+										<a href="#">악세사리</a>
+										<ul class="sub_menu">
+											<li><a href="#">ALL</a></li>
+										</ul>
+									</li>
+									<li><a href="#">트레이닝</a></li>
+								</ul>
+							</div>
+							<div class="submenu_bg"></div>
+							<div class="iconbox">
+								<li class="mb mblogo">
+									<a href="#">
+										<img src="img/logo.png" alt="" />
+									</a>
+								</li>
+								<ul class="icon">
+									<li class="pcc1">
+										<a href="#">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 32 32"
+												fill="none"
+											>
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M19.2226 14.4255C19.2226 17.6828 16.785 20.3234 13.778 20.3234C10.771 20.3234 8.33341 17.6828 8.33341 14.4255C8.33341 11.1682 10.771 8.52766 13.778 8.52766C16.785 8.52766 19.2226 11.1682 19.2226 14.4255ZM18.8673 20.7973C17.5033 22.0768 15.7241 22.8511 13.778 22.8511C9.48234 22.8511 6 19.0788 6 14.4255C6 9.77224 9.48234 6 13.778 6C18.0737 6 21.556 9.77224 21.556 14.4255C21.556 16.0561 21.1285 17.5785 20.3881 18.8682L25.9999 25.0237L24.3499 26.8111L18.8673 20.7973Z"
+													fill="#222222"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="pcc">
+										<a href="#">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												viewBox="0 0 32 32"
+												fill="none"
+											>
+												<path
+													d="M15.8 16.6C17.2322 16.6 18.6057 16.0311 19.6184 15.0184C20.6311 14.0057 21.2 12.6322 21.2 11.2C21.2 9.76783 20.6311 8.39432 19.6184 7.38162C18.6057 6.36893 17.2322 5.8 15.8 5.8C14.3678 5.8 12.9943 6.36893 11.9816 7.38162C10.9689 8.39432 10.4 9.76783 10.4 11.2C10.4 12.6322 10.9689 14.0057 11.9816 15.0184C12.9943 16.0311 14.3678 16.6 15.8 16.6ZM15.8 18.4C13.8904 18.4 12.0591 17.6414 10.7088 16.2912C9.35857 14.9409 8.6 13.1096 8.6 11.2C8.6 9.29044 9.35857 7.45909 10.7088 6.10883C12.0591 4.75857 13.8904 4 15.8 4C17.7096 4 19.5409 4.75857 20.8912 6.10883C22.2414 7.45909 23 9.29044 23 11.2C23 13.1096 22.2414 14.9409 20.8912 16.2912C19.5409 17.6414 17.7096 18.4 15.8 18.4ZM24.8 27.4V24.7C24.8 23.9839 24.5155 23.2972 24.0092 22.7908C23.5028 22.2845 22.8161 22 22.1 22H9.5C8.78392 22 8.09716 22.2845 7.59081 22.7908C7.08446 23.2972 6.8 23.9839 6.8 24.7V27.4C6.8 27.6387 6.70518 27.8676 6.5364 28.0364C6.36761 28.2052 6.13869 28.3 5.9 28.3C5.66131 28.3 5.43239 28.2052 5.2636 28.0364C5.09482 27.8676 5 27.6387 5 27.4V24.7C5 23.5065 5.47411 22.3619 6.31802 21.518C7.16193 20.6741 8.30653 20.2 9.5 20.2H22.1C23.2935 20.2 24.4381 20.6741 25.282 21.518C26.1259 22.3619 26.6 23.5065 26.6 24.7V27.4C26.6 27.6387 26.5052 27.8676 26.3364 28.0364C26.1676 28.2052 25.9387 28.3 25.7 28.3C25.4613 28.3 25.2324 28.2052 25.0636 28.0364C24.8948 27.8676 24.8 27.6387 24.8 27.4Z"
+													fill="black"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="pcc">
+										<a href="#"
+											><svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="33"
+												height="32"
+												viewBox="0 0 33 32"
+												fill="none"
+											>
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M9.2716 7.30593C7.3722 8.17376 5.98115 10.2392 5.98115 12.7018C5.98115 15.2172 7.01156 17.1567 8.48619 18.819C9.70322 20.1883 11.1756 21.3241 12.6113 22.4301C12.9525 22.6934 13.2913 22.9556 13.6245 23.2178C14.2267 23.6929 14.7637 24.1085 15.2823 24.4119C15.7998 24.7141 16.2166 24.8527 16.5715 24.8527C16.9264 24.8527 17.3432 24.7153 17.8607 24.4119C18.3793 24.1085 18.9163 23.6929 19.5185 23.2178C19.8505 22.9544 20.1905 22.6934 20.5317 22.4312C21.9674 21.3229 23.4398 20.1883 24.6568 18.819C26.1326 17.1567 27.1618 15.2172 27.1618 12.7018C27.1618 10.2403 25.7708 8.17376 23.8714 7.30593C22.0258 6.46213 19.5459 6.68539 17.1897 9.13433C17.1096 9.21744 17.0136 9.28354 16.9074 9.32869C16.8012 9.37384 16.6869 9.39711 16.5715 9.39711C16.4561 9.39711 16.3418 9.37384 16.2356 9.32869C16.1294 9.28354 16.0333 9.21744 15.9532 9.13433C13.597 6.68539 11.1172 6.46213 9.2716 7.30593ZM16.5715 7.34714C13.9245 4.9772 10.9603 4.64518 8.55718 5.74314C6.02236 6.90521 4.26379 9.59802 4.26379 12.703C4.26379 15.7541 5.53464 18.0829 7.20276 19.9605C8.53771 21.4638 10.1715 22.722 11.6152 23.8326C11.9427 24.0844 12.2598 24.3295 12.5609 24.5676C13.1482 25.0301 13.7779 25.5224 14.4156 25.8957C15.0534 26.2678 15.7815 26.5712 16.5715 26.5712C17.3615 26.5712 18.0896 26.2678 18.7273 25.8957C19.3662 25.5224 19.9947 25.0301 20.5821 24.5676C20.8957 24.3205 21.2109 24.0755 21.5278 23.8326C22.9704 22.722 24.6053 21.4626 25.9402 19.9605C27.6083 18.0829 28.8792 15.7541 28.8792 12.703C28.8792 9.59802 27.1218 6.90521 24.5858 5.74543C22.1827 4.64632 19.2185 4.97834 16.5715 7.34714Z"
+													fill="black"
+												/>
+											</svg>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="33"
+												height="32"
+												viewBox="0 0 33 32"
+												fill="none"
+											>
+												<path
+													d="M3.26007 5.08714C3.26007 4.8804 3.3422 4.68214 3.48838 4.53595C3.63457 4.38977 3.83284 4.30765 4.03958 4.30765H6.37812C6.552 4.3077 6.72087 4.36588 6.85788 4.47294C6.99489 4.58 7.09216 4.72979 7.13424 4.8985L7.76565 7.4256H25.8659C25.9804 7.42571 26.0934 7.45102 26.197 7.49973C26.3005 7.54845 26.3921 7.61937 26.4652 7.70747C26.5382 7.79557 26.591 7.89867 26.6197 8.00947C26.6485 8.12026 26.6524 8.23602 26.6314 8.34852L24.2929 20.8203C24.2594 20.999 24.1646 21.1603 24.0248 21.2764C23.8851 21.3926 23.7091 21.4562 23.5274 21.4564H9.49616C9.31443 21.4562 9.13847 21.3926 8.9987 21.2764C8.85892 21.1603 8.76412 20.999 8.73068 20.8203L6.39371 8.3719L5.7701 5.86662H4.03958C3.83284 5.86662 3.63457 5.7845 3.48838 5.63832C3.3422 5.49214 3.26007 5.29387 3.26007 5.08714ZM8.09616 8.98458L10.1432 19.8974H22.8804L24.9274 8.98458H8.09616ZM11.0552 21.4564C10.2282 21.4564 9.43514 21.7849 8.85039 22.3696C8.26565 22.9544 7.93714 23.7474 7.93714 24.5744C7.93714 25.4013 8.26565 26.1943 8.85039 26.7791C9.43514 27.3638 10.2282 27.6923 11.0552 27.6923C11.8821 27.6923 12.6752 27.3638 13.26 26.7791C13.8447 26.1943 14.1732 25.4013 14.1732 24.5744C14.1732 23.7474 13.8447 22.9544 13.26 22.3696C12.6752 21.7849 11.8821 21.4564 11.0552 21.4564ZM21.9683 21.4564C21.1414 21.4564 20.3483 21.7849 19.7636 22.3696C19.1788 22.9544 18.8503 23.7474 18.8503 24.5744C18.8503 25.4013 19.1788 26.1943 19.7636 26.7791C20.3483 27.3638 21.1414 27.6923 21.9683 27.6923C22.7953 27.6923 23.5884 27.3638 24.1731 26.7791C24.7579 26.1943 25.0864 25.4013 25.0864 24.5744C25.0864 23.7474 24.7579 22.9544 24.1731 22.3696C23.5884 21.7849 22.7953 21.4564 21.9683 21.4564ZM11.0552 23.0154C11.4687 23.0154 11.8652 23.1796 12.1576 23.472C12.45 23.7644 12.6142 24.1609 12.6142 24.5744C12.6142 24.9878 12.45 25.3843 12.1576 25.6767C11.8652 25.9691 11.4687 26.1333 11.0552 26.1333C10.6417 26.1333 10.2452 25.9691 9.95279 25.6767C9.66042 25.3843 9.49616 24.9878 9.49616 24.5744C9.49616 24.1609 9.66042 23.7644 9.95279 23.472C10.2452 23.1796 10.6417 23.0154 11.0552 23.0154ZM21.9683 23.0154C22.3818 23.0154 22.7784 23.1796 23.0707 23.472C23.3631 23.7644 23.5274 24.1609 23.5274 24.5744C23.5274 24.9878 23.3631 25.3843 23.0707 25.6767C22.7784 25.9691 22.3818 26.1333 21.9683 26.1333C21.5549 26.1333 21.1583 25.9691 20.866 25.6767C20.5736 25.3843 20.4093 24.9878 20.4093 24.5744C20.4093 24.1609 20.5736 23.7644 20.866 23.472C21.1583 23.1796 21.5549 23.0154 21.9683 23.0154Z"
+													fill="black"
+												/>
+												<ellipse cx="24.2857" cy="8" rx="8" ry="8" fill="black" />
+												<path
+													d="M24.2918 12.8C22.3852 12.8 21.0858 11.1337 21.0858 7.95027C21.0858 4.76685 22.3852 3.20001 24.2918 3.20001C26.1985 3.20001 27.4858 4.77929 27.4858 7.95027C27.4858 11.1337 26.1985 12.8 24.2918 12.8ZM24.2918 11.084C24.9355 11.084 25.4455 10.4871 25.4455 7.95027C25.4455 5.42592 24.9355 4.8912 24.2918 4.8912C23.6482 4.8912 23.126 5.42592 23.126 7.95027C23.126 10.4871 23.6482 11.084 24.2918 11.084Z"
+													fill="white"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="menubtn">
+										<button class="ib1"><img src="img/menu.png" alt="" /></button>
+										<button class="ib2"><img src="img/menu2.png" alt="" /></button>
+										<button class="ib3"><img src="img/menu.png" alt="" /></button>
+									</li>
+									<div class="i_submenu">
+										<ul>
+											<p><a href="#">MY PAGE</a></p>
+											<li><a href="#">주문조회</a></li>
+											<li><a href="#">관심상품</a></li>
+											<li><a href="#">내 게시물</a></li>
+										</ul>
+										<ul>
+											<p><a href="#">COMMUNITY</a></p>
+											<li><a href="#">NOTICE</a></li>
+											<li><a href="#">Q & A</a></li>
+											<li><a href="#">REVIEW</a></li>
+											<li><a href="#">EVENT</a></li>
+										</ul>
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="m_menu">
+					<div class="m_menu_wrap">
+						<div class="btn1">
+							<img src="img/mlogo.png" alt="" />
+							<button class="xbtn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+									<path
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+										d="M3.20358 0.893461C2.71013 0.400015 1.91009 0.400015 1.41665 0.893461C0.923202 1.38691 0.923202 2.18694 1.41665 2.68039L8.4747 9.73844L0.893522 17.3196C0.400076 17.8131 0.400075 18.6131 0.893521 19.1066C1.38697 19.6 2.187 19.6 2.68045 19.1066L10.2616 11.5254L17.3194 18.5831C17.8129 19.0766 18.6129 19.0766 19.1063 18.5831C19.5998 18.0897 19.5998 17.2897 19.1063 16.7962L12.0486 9.73844L19.1066 2.68041C19.6 2.18697 19.6 1.38693 19.1066 0.893486C18.6131 0.400039 17.8131 0.400039 17.3197 0.893486L10.2616 7.95152L3.20358 0.893461Z"
+										fill="black"
+									/>
+								</svg>
+							</button>
+						</div>
+						<div class="btn2">
+							<div>회원가입</div>
+							<div>로그인</div>
+							<div>마이페이지</div>
+						</div>
+						<ul class="main_menu">
+							<li class="bold">
+								<p>
+									BEST
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">BEST</a></li>
+									<li><a href="#">1 + N</a></li>
+									<li><a href="#">SET</a></li>
+								</ul>
+							</li>
+							<li class="bold">
+								<p><a href="#">1 + 1 이벤트</a></p>
+							</li>
+							<li class="bold">
+								<p><a href="#">특가세일</a></p>
+							</li>
+							<li class="bold">
+								<p><a href="#">코디세트</a></p>
+							</li>
+							<li>
+								<p>
+									아우터
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">패딩, 점퍼</a></li>
+									<li><a href="#">코트</a></li>
+									<li><a href="#">재킷</a></li>
+									<li><a href="#">가디건</a></li>
+									<li><a href="#">HAND MADE</a></li>
+									<li><a href="#">양털, 아노락</a></li>
+									<li><a href="#">후드집업</a></li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									수트
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">ALL</a></li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									상의
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">니트</a></li>
+									<li><a href="#">가디건</a></li>
+									<li><a href="#">셔츠</a></li>
+									<li><a href="#">티셔츠</a></li>
+									<li><a href="#">후드</a></li>
+									<li><a href="#">맨투맨</a></li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									바지
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">청바지</a></li>
+									<li><a href="#">슬렉스</a></li>
+									<li><a href="#">벤딩팬츠</a></li>
+									<li><a href="#">치노팬츠</a></li>
+									<li><a href="#">조거팬츠</a></li>
+									<li><a href="#">반바지</a></li>
+								</ul>
+							</li>
+							<li>
+								<p><a href="#">슈즈</a></p>
+							</li>
+							<li>
+								<p>
+									악세사리
+									<span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="8"
+											viewBox="0 0 14 8"
+											fill="none"
+										>
+											<path d="M1 1L7.26087 6.73913L13 1" stroke="black" />
+										</svg>
+									</span>
+								</p>
+								<ul>
+									<li><a href="#">ALL</a></li>
+								</ul>
+							</li>
+							<li>
+								<p><a href="#">트레이닝</a></p>
+							</li>
+						</ul>
+						<div class="notice">
+							<div><a href="#">NOTICE</a></div>
+							<div><a href="#">Q & A</a></div>
+							<div><a href="#">REVIEW</a></div>
+							<div><a href="#">EVENT</a></div>
+						</div>
+						<div class="call">
+							<h2>고객센터<br />1234-1234</h2>
+							<p>
+								운영시간 : 평일 13:00 ~ 17:30 <br />
+								주말 및 공휴일 휴무
+							</p>
+						</div>
+						<div class="reserved">© ALL RIGHT RESERVED.</div>
+					</div>
+				</div>
+				<div class="m_menubg xbtn"></div>
+			</div>
+		</header>
+		<main class="main1">
+			<div class="slider1 swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide3.png" alt="" class="main1_mb" />
+							<img src="img/slide3.svg" alt="" class="main1_pc main1_img1" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide2.png" alt="" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide1.png" alt="" class="main1_mb" />
+							<img src="img/slide1.svg" alt="" class="main1_pc" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide3.png" alt="" class="main1_mb" />
+							<img src="img/slide3.svg" alt="" class="main1_pc main1_img1" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide2.png" alt="" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="img/slide1.png" alt="" class="main1_mb" />
+							<img src="img/slide1.svg" alt="" class="main1_pc" />
+							<div class="boxtitle">
+								<h3 class="name">SOFT BEAR SET UP</h3>
+								<div class="sub">3TYPE 반집업 + 와이드/조거팬츠</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-scrollbar"></div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</main>
+		<main class="main2">
+			<div class="main2_wrap">
+				<div class="title titles">WEEKLY BEST</div>
+				<div class="main2_btn">
+					<button class="best">BEST</button>
+					<button class="one">1 + N</button>
+					<button class="set">SET</button>
+				</div>
+				<div class="slider_wrap">
+					<div class="slider slider2_1">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_4.webp" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_5.webp" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_2.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="slider slider2_2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_2.gif" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_2.gif" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="slider slider2_3">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_2.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_3.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_2.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_3.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">52,900원<br /><span>[90-100,100-105,105-115]</span></div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+				<div class="more">
+					<a href="#">전체보기</a>
+				</div>
+			</div>
+		</main>
+		<main class="main3">
+			<div class="title titles">2023 F/W NEW ARRIVALS</div>
+			<div class="main3_wrap">
+				<div class="leftbox"></div>
+				<div class="left m3left">
+					<img src="img/main3.png" alt="" />
+					<div class="title">
+						<div class="name">NEW ARRIVALS</div>
+						<div class="sub">우리의 F/W 신제품은<br />당신의 스타일을 완성할 준비가 되었습니다.</div>
+					</div>
+				</div>
+				<ul class="right">
+					<li class="c1 cc">
+						<a href="#">
+							<img src="img/main3_1.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+					<li class="c2 cc">
+						<a href="#">
+							<img src="img/main3_2.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+					<li class="c3 cc">
+						<a href="#">
+							<img src="img/main3_3.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+					<li class="c4 cc">
+						<a href="#">
+							<img src="img/main3_4.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+					<li class="c1 cc">
+						<a href="#">
+							<img src="img/main3_1.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+					<li class="c2 cc">
+						<a href="#">
+							<img src="img/main3_2.png" alt="" />
+						</a>
+						<div class="title">
+							<ul class="color">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+							<div class="sub">[90-100,100-105,105-115]</div>
+							<div class="price">52,900원</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</main>
+		<main class="main3m">
+			<div class="main3m_wrap">
+				<div class="top">
+					<img src="img/main3.png" alt="" />
+					<div class="title">
+						<div class="name">NEW ARRIVALS</div>
+						<div class="sub">우리의 F/W 신제품은<br />당신의 스타일을 완성할 준비가 되었습니다.</div>
+					</div>
+				</div>
+				<ul class="bottom">
+					<div class="slider_wrap">
+						<div class="slider slider3m">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_1.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_2.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_3.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_4.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_1.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<img src="img/main3_2.png" alt="" />
+										<div class="title">
+											<ul class="color">
+												<li></li>
+												<li></li>
+												<li></li>
+												<li></li>
+											</ul>
+											<div class="name1">브랜드명</div>
+											<div class="name">캐치 피셔맨 라운드 니트</div>
+											<div class="sub">52,900원</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="more">
+						<a href="#">전체보기</a>
+					</div>
+				</ul>
+			</div>
+		</main>
+		<main class="main4">
+			<div class="main4_wrap">
+				<div class="title titles">#KEY WORD</div>
+				<div class="main4_btn">
+					<div class="slider slider3_kw">
+						<div class="swiper-wrapper">
+							<button class="mbt all swiper-slide">전체보기</button>
+							<button class="mbt winter swiper-slide">#WINTER</button>
+							<button class="mbt boyf swiper-slide">#남친룩</button>
+							<button class="mbt coup swiper-slide">#커플룩</button>
+							<button class="mbt big swiper-slide">#빅사이즈</button>
+							<button class="mbt fitn swiper-slide">#피트니스룩</button>
+						</div>
+					</div>
+				</div>
+				<div class="slider_wrap">
+					<div class="slider slider3_1 m3slider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_2.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide1_2.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="slider slider3_2 m3slider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_2.gif" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_3.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_1.jpg" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide2_2.gif" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="slider slider3_3 m3slider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_2.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_3.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main2_slide3_2.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="slider slider3_4 m3slider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main3_2.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main3_3.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main3_4.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<img src="img/main3_1.png" alt="" />
+									<div class="title">
+										<ul class="color">
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<div class="name">웨어러블 베이직 숏패딩 [웰론/덕다운 2TYPE]</div>
+										<div class="sub">[90-100,100-105,105-115]</div>
+										<div class="price">52,900원</div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- buttons -->
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+				<div class="more">
+					<a href="#">전체보기</a>
+				</div>
+			</div>
+		</main>
+		<main class="main5">
+			<div class="main5_wrap">
+				<div class="title titles">실시간 구매후기</div>
+				<ul>
+					<li class="grid">
+						<a href="#" class="img"><img src="img/main5_1.png" alt="" /></a>
+						<a href="#" class="info">
+							<div class="title">
+								<div class="name">F/W 코듀로이 와이드 팬츠</div>
+								<div class="point"></div>
+								<div class="sub">
+									가성비 좋네요. 가격대비 만족합니다. 아주 잘 입고 있어요. 따듯하고 부들부들하고 이쁘고
+									사이즈도 딱 맞아요!
+								</div>
+								<div class="custm">네이버 페이 구매자</div>
+							</div>
+						</a>
+						<div class="cust">네이버 페이 구매자</div>
+					</li>
+					<li class="grid">
+						<a href="#" class="img"><img src="img/main5_2.png" alt="" /></a>
+						<a href="#" class="info">
+							<div class="title">
+								<div class="name">F/W 코듀로이 와이드 팬츠</div>
+								<div class="point"></div>
+								<div class="sub">
+									가성비 좋네요. 가격대비 만족합니다. 아주 잘 입고 있어요. 따듯하고 부들부들하고 이쁘고
+									사이즈도 딱 맞아요!
+								</div>
+								<div class="custm">네이버 페이 구매자</div>
+							</div>
+						</a>
+						<div class="cust">네이버 페이 구매자</div>
+					</li>
+					<li class="grid">
+						<a href="#" class="img"><img src="img/main5_1.png" alt="" /></a>
+						<a href="#" class="info">
+							<div class="title">
+								<div class="name">F/W 코듀로이 와이드 팬츠</div>
+								<div class="point"></div>
+								<div class="sub">
+									가성비 좋네요. 가격대비 만족합니다. 아주 잘 입고 있어요. 따듯하고 부들부들하고 이쁘고
+									사이즈도 딱 맞아요!
+								</div>
+								<div class="custm">네이버 페이 구매자</div>
+							</div>
+						</a>
+						<div class="cust">네이버 페이 구매자</div>
+					</li>
+					<li class="grid">
+						<a href="#" class="img"><img src="img/main5_2.png" alt="" /></a>
+						<a href="#" class="info">
+							<div class="title">
+								<div class="name">F/W 코듀로이 와이드 팬츠</div>
+								<div class="point"></div>
+								<div class="sub">
+									가성비 좋네요. 가격대비 만족합니다. 아주 잘 입고 있어요. 따듯하고 부들부들하고 이쁘고
+									사이즈도 딱 맞아요!
+								</div>
+								<div class="custm">네이버 페이 구매자</div>
+							</div>
+						</a>
+						<div class="cust">네이버 페이 구매자</div>
+					</li>
+				</ul>
+				<div class="more">
+					<a href="#">전체보기</a>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<div class="ft1">
+				<div class="ft1_wrap">
+					<ul>
+						<li><a href="#">회사소개</a></li>
+						<span></span>
+						<li><a href="#">이용약관</a></li>
+						<span></span>
+						<li><a href="#">개인정보취급방침</a></li>
+						<span></span>
+						<li><a href="#">이용안내</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="ft2">
+				<div class="ft2_wrap">
+					<div class="ft2_1">
+						<div class="logo"><img src="img/logo.png" alt="" /></div>
+						<ul class="text">
+							<li class="fpn">대표. 홍길동</li>
+							<span></span>
+							<li>주소. 경상남도 창원시 성산구 비음로 45, 홍길동빌더스 1층 헤일로샵</li>
+							<span></span>
+							<li>사업자등록번호. 123-12-12345</li>
+							<br />
+							<li class="fpn">통신판매신고번호. 2023-창원성산-1234</li>
+							<span></span>
+							<li>개인정보취급관리자. 홍길동</li>
+							<span></span>
+							<li>호스팅제공자. 홍길동쓰인터넷(주)</li>
+							<li class="fpn">Copyright © 헤일로샵 all rights reserved. design by design102</li>
+						</ul>
+						<ul class="icon">
+							<li>
+								<a href="#"><img src="img/ft2_icon1.png" alt="" /></a>
+							</li>
+							<span></span>
+							<li>
+								<a href="#"><img src="img/ft2_icon2.png" alt="" /></a>
+							</li>
+							<span></span>
+							<li>
+								<a href="#"><img src="img/ft2_icon3.png" alt="" /></a>
+							</li>
+							<span></span>
+							<li>
+								<a href="#"><img src="img/ft2_icon4.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+					<div class="ft2_2">
+						<h2>CALL CENTER<br />1660-1234</h2>
+						<p>운영시간 : 평일13:00 ~ 17:30<br />주말 및 공휴일 휴무</p>
+						<h2>RETURN / EXCHANGE</h2>
+						<p>
+							경남 창원시 성산구 비음로45, 레뉴어빌더스<br />
+							1층 헤일로샵
+						</p>
+					</div>
+					<ul class="ft2_3">
+						<h2>QUICK</h2>
+						<li><a href="#">로그인</a></li>
+						<li><a href="#">회원가입</a></li>
+						<li><a href="#">나의쇼핑</a></li>
+						<li><a href="#">공지사항</a></li>
+						<li><a href="#">고객센터</a></li>
+						<li><a href="#">포토후기</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">주문조회</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="mf mft1">
+				<div class="mft1_grid">
+					<div>
+						<h2>고객센터<br />1660-2014</h2>
+						<p>운영시간 : 평일 13:00 ~ 17:30<br />주말 및 공휴일 휴무</p>
+					</div>
+					<div>
+						<h2>반품 및 교환 주소</h2>
+						<p>경남 창원시 성산구 비음로45,<br />홍길동빌더스 1층 헤일로샵</p>
+					</div>
+				</div>
+			</div>
+			<div class="mf mft2">
+				<div class="mft2_wrap">
+					<img src="img/mflogo.png" alt="" />
+					<div class="text">
+						<p>
+							대표 &nbsp;&nbsp;홍길동<br />
+							주소 &nbsp;&nbsp;경상남도 창원시 성산구 비음로 45, <br />레뉴어빌더스 1층 헤일로샵<br />
+							사업자등록번호 &nbsp; &nbsp;123-12-12345<br />
+							통신판매신고번호 &nbsp; &nbsp;2023-창원성산-1234<br />
+							개인정보취급관리자 &nbsp; &nbsp;홍길동<br />
+							호스팅제공자 &nbsp; &nbsp; 홍길동스인터넷(주)
+						</p>
+						<ul class="info">
+							<li><a href="#">회사소개</a></li>
+							<span></span>
+							<li><a href="#">이용약관</a></li>
+							<span></span>
+							<li><a href="#">개인정보취급방침</a></li>
+							<span></span>
+							<li><a href="#">이용안내</a></li>
+						</ul>
+						<ul class="icon">
+							<li>
+								<a href="#">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+									>
+										<path
+											d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+											fill="white"
+										/>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+									>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M16 3C17.3261 3 18.5979 3.52678 19.5355 4.46447C20.4732 5.40215 21 6.67392 21 8V16C21 17.3261 20.4732 18.5979 19.5355 19.5355C18.5979 20.4732 17.3261 21 16 21H8C6.67392 21 5.40215 20.4732 4.46447 19.5355C3.52678 18.5979 3 17.3261 3 16V8C3 6.67392 3.52678 5.40215 4.46447 4.46447C5.40215 3.52678 6.67392 3 8 3H16ZM16 5H8C7.20435 5 6.44129 5.31607 5.87868 5.87868C5.31607 6.44129 5 7.20435 5 8V16C5 16.7956 5.31607 17.5587 5.87868 18.1213C6.44129 18.6839 7.20435 19 8 19H16C16.7956 19 17.5587 18.6839 18.1213 18.1213C18.6839 17.5587 19 16.7956 19 16V8C19 7.20435 18.6839 6.44129 18.1213 5.87868C17.5587 5.31607 16.7956 5 16 5ZM12 8C13.0609 8 14.0783 8.42143 14.8284 9.17157C15.5786 9.92172 16 10.9391 16 12C16 13.0609 15.5786 14.0783 14.8284 14.8284C14.0783 15.5786 13.0609 16 12 16C10.9391 16 9.92172 15.5786 9.17157 14.8284C8.42143 14.0783 8 13.0609 8 12C8 10.9391 8.42143 9.92172 9.17157 9.17157C9.92172 8.42143 10.9391 8 12 8ZM12 10C11.4696 10 10.9609 10.2107 10.5858 10.5858C10.2107 10.9609 10 11.4696 10 12C10 12.5304 10.2107 13.0391 10.5858 13.4142C10.9609 13.7893 11.4696 14 12 14C12.5304 14 13.0391 13.7893 13.4142 13.4142C13.7893 13.0391 14 12.5304 14 12C14 11.4696 13.7893 10.9609 13.4142 10.5858C13.0391 10.2107 12.5304 10 12 10ZM16.5 6.5C16.7652 6.5 17.0196 6.60536 17.2071 6.79289C17.3946 6.98043 17.5 7.23478 17.5 7.5C17.5 7.76522 17.3946 8.01957 17.2071 8.20711C17.0196 8.39464 16.7652 8.5 16.5 8.5C16.2348 8.5 15.9804 8.39464 15.7929 8.20711C15.6054 8.01957 15.5 7.76522 15.5 7.5C15.5 7.23478 15.6054 6.98043 15.7929 6.79289C15.9804 6.60536 16.2348 6.5 16.5 6.5Z"
+											fill="white"
+										/>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+									>
+										<path
+											d="M12 3C17.8 3 22.501 6.664 22.501 11.185C22.501 15.705 17.8 19.369 12.001 19.369C11.4236 19.3693 10.8467 19.3325 10.274 19.259L5.86598 22.142C5.36498 22.407 5.18798 22.378 5.39398 21.729L6.28598 18.051C3.40598 16.591 1.50098 14.061 1.50098 11.185C1.50098 6.665 6.20098 3 12.001 3H12ZM17.908 11.06L19.378 9.636C19.4628 9.54791 19.5101 9.43033 19.51 9.30804C19.5098 9.18575 19.4622 9.0683 19.3772 8.98041C19.2922 8.89252 19.1763 8.84107 19.0541 8.83689C18.9319 8.83271 18.8128 8.87613 18.722 8.958L16.794 10.824V9.282C16.794 9.15682 16.7442 9.03676 16.6557 8.94825C16.5672 8.85973 16.4472 8.81 16.322 8.81C16.1968 8.81 16.0767 8.85973 15.9882 8.94825C15.8997 9.03676 15.85 9.15682 15.85 9.282V11.839C15.8323 11.9119 15.8323 11.9881 15.85 12.061V13.5C15.85 13.6252 15.8997 13.7452 15.9882 13.8338C16.0767 13.9223 16.1968 13.972 16.322 13.972C16.4472 13.972 16.5672 13.9223 16.6557 13.8338C16.7442 13.7452 16.794 13.6252 16.794 13.5V12.137L17.221 11.724L18.649 13.757C18.6846 13.8078 18.7299 13.851 18.7823 13.8842C18.8347 13.9175 18.8931 13.9401 18.9542 13.9508C19.0153 13.9615 19.0779 13.96 19.1384 13.9465C19.1989 13.933 19.2562 13.9077 19.307 13.872C19.3577 13.8363 19.401 13.791 19.4342 13.7387C19.4675 13.6863 19.4901 13.6279 19.5008 13.5668C19.5114 13.5057 19.51 13.4431 19.4965 13.3826C19.4829 13.322 19.4576 13.2648 19.422 13.214L17.908 11.059V11.06ZM14.95 12.984H13.49V9.297C13.4844 9.17571 13.4323 9.06123 13.3445 8.97737C13.2566 8.89351 13.1399 8.84672 13.0185 8.84672C12.8971 8.84672 12.7803 8.89351 12.6925 8.97737C12.6047 9.06123 12.5526 9.17571 12.547 9.297V13.456C12.547 13.716 12.757 13.928 13.018 13.928H14.95C15.0752 13.928 15.1952 13.8783 15.2837 13.7898C15.3722 13.7012 15.422 13.5812 15.422 13.456C15.422 13.3308 15.3722 13.2108 15.2837 13.1222C15.1952 13.0337 15.0752 12.984 14.95 12.984ZM9.09298 11.893L9.78898 10.185L10.427 11.892L9.09298 11.893ZM11.616 12.38L11.618 12.364C11.6177 12.2451 11.5723 12.1307 11.491 12.044L10.445 9.244C10.4011 9.11057 10.3176 8.99369 10.2056 8.90899C10.0935 8.8243 9.95831 8.7758 9.81798 8.77C9.67662 8.76938 9.53842 8.81182 9.42177 8.89167C9.30512 8.97152 9.21555 9.08499 9.16498 9.217L7.50298 13.292C7.45564 13.4079 7.45627 13.5379 7.50475 13.6533C7.55323 13.7687 7.64558 13.8602 7.76148 13.9075C7.87738 13.9548 8.00734 13.9542 8.12276 13.9057C8.23819 13.8572 8.32964 13.7649 8.37698 13.649L8.70898 12.836H10.779L11.077 13.636C11.0973 13.6958 11.1294 13.7509 11.1714 13.7981C11.2135 13.8452 11.2645 13.8835 11.3216 13.9105C11.3786 13.9376 11.4406 13.9529 11.5037 13.9557C11.5668 13.9584 11.6298 13.9484 11.6889 13.9263C11.7481 13.9042 11.8022 13.8704 11.8481 13.8271C11.894 13.7837 11.9307 13.7315 11.9561 13.6737C11.9815 13.6158 11.995 13.5535 11.9958 13.4903C11.9967 13.4272 11.9848 13.3645 11.961 13.306L11.616 12.38ZM8.29398 9.302C8.29398 9.17699 8.24439 9.05709 8.15608 8.9686C8.06778 8.88011 7.94799 8.83026 7.82298 8.83H4.57798C4.45279 8.83 4.33274 8.87973 4.24422 8.96825C4.1557 9.05676 4.10598 9.17682 4.10598 9.302C4.10598 9.42718 4.1557 9.54724 4.24422 9.63575C4.33274 9.72427 4.45279 9.774 4.57798 9.774H5.73798V13.51C5.73798 13.6352 5.7877 13.7552 5.87622 13.8438C5.96474 13.9323 6.08479 13.982 6.20998 13.982C6.33516 13.982 6.45521 13.9323 6.54373 13.8438C6.63225 13.7552 6.68198 13.6352 6.68198 13.51V9.774H7.82198C7.94716 9.774 8.06721 9.72427 8.15573 9.63575C8.24425 9.54724 8.29398 9.42718 8.29398 9.302Z"
+											fill="white"
+										/>
+									</svg>
+								</a>
+							</li>
+						</ul>
+						<div class="copy">Copyright © 헤일로샵 all rights reserved. design by design102</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<a id="topBtn"
+			><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+				<path
+					d="M15.9953 4.38892L9.13892 12.0501H14.1671L14.2531 18.1111H17.8383L17.824 12.0501H22.8516L15.9953 4.38892Z"
+					fill="#AAAAAA"
+				/>
+				<path
+					d="M9.74217 21.0139H12.7579M11.25 21.0139V26.2917M19.7694 26.2759V20.9981H21.7818C22.1304 20.9981 22.4646 21.1365 22.7111 21.383C22.9575 21.6294 23.096 21.9637 23.096 22.3122C23.0961 22.4849 23.0621 22.6558 22.9961 22.8153C22.9301 22.9748 22.8333 23.1198 22.7113 23.2418C22.5892 23.3639 22.4443 23.4608 22.2849 23.5269C22.1254 23.5929 21.9545 23.6269 21.7818 23.6269H19.7694M15.9953 4.38892L9.13892 12.0501H14.1671L14.2531 18.1111H17.8383L17.824 12.0501H22.8516L15.9953 4.38892ZM16.1742 26.2759C15.6743 26.2759 15.195 26.0773 14.8415 25.7238C14.4881 25.3704 14.2895 24.891 14.2895 24.3912V22.8823C14.2895 22.3824 14.4881 21.903 14.8415 21.5496C15.195 21.1961 15.6743 20.9976 16.1742 20.9976C16.674 20.9976 17.1534 21.1961 17.5069 21.5496C17.8603 21.903 18.0589 22.3824 18.0589 22.8823V24.3917C18.0589 24.8915 17.8603 25.3709 17.5069 25.7244C17.1534 26.0778 16.674 26.2759 16.1742 26.2759Z"
+					stroke="#AAAAAA"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</a>
+	</body>
+	<script>
+		class Scrooth {
+			constructor({ element = window, strength = 10, acceleration = 1.2, deceleration = 0.975 } = {}) {
+				this.element = element;
+				this.distance = strength;
+				this.acceleration = acceleration;
+				this.deceleration = deceleration;
+				this.running = false;
+
+				this.element.addEventListener('wheel', this.scrollHandler.bind(this), { passive: false });
+				this.element.addEventListener('mousewheel', this.scrollHandler.bind(this), { passive: false });
+				this.scroll = this.scroll.bind(this);
+			}
+
+			scrollHandler(e) {
+				e.preventDefault();
+
+				if (!this.running) {
+					this.top = this.element.pageYOffset || this.element.scrollTop || 0;
+					this.running = true;
+					this.currentDistance = e.deltaY > 0 ? 0.1 : -0.1;
+					this.isDistanceAsc = true;
+					this.scroll();
+				} else {
+					this.isDistanceAsc = false;
+					this.currentDistance = e.deltaY > 0 ? this.distance : -this.distance;
+				}
+			}
+
+			scroll() {
+				if (this.running) {
+					this.currentDistance *= this.isDistanceAsc === true ? this.acceleration : this.deceleration;
+					Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false ? (this.running = false) : 1;
+					Math.abs(this.currentDistance) >= Math.abs(this.distance) ? (this.isDistanceAsc = false) : 1;
+
+					this.top += this.currentDistance;
+					this.element.scrollTo(0, this.top);
+
+					requestAnimationFrame(this.scroll);
+				}
+			}
+		}
+
+		const scroll = new Scrooth({
+			element: window,
+			strength: 35, //스크롤 한번에 이동하는 거리
+			acceleration: 1.75,
+			deceleration: 0.875,
+		});
+		// menu
+		$(function () {
+			// $('.ib1').on('click', function () {
+			// 	$('.menubtn').addClass('view');
+			// 	$('.sub_menu').addClass('view');
+			// 	$('.submenu_bg').addClass('view');
+			// 	$('.i_submenu').addClass('view');
+			// });
+
+			$('.ib2').on('click', function () {
+				$('.menubtn').removeClass('view');
+				$('.sub_menu').removeClass('view');
+				$('.submenu_bg').removeClass('view');
+				$('.i_submenu').removeClass('view');
+			});
+		});
+		$(window).scroll(function () {
+			var height = $(document).scrollTop(); //실시간으로 스크롤의 높이를 측정
+			if (height > 0) {
+				$('.hd2').addClass('fixinner');
+			} else if (height == 0) {
+				$('.hd2').removeClass('fixinner');
+			}
+		});
+		// m_menu
+		$(function () {
+			$('.ib3').on('click', function () {
+				$('.m_menubg').addClass('view');
+				$('.m_menu').addClass('view');
+				$('.hd2').addClass('view');
+				// 모바일 사이드메뉴만 스크롤
+				$('body')
+					.css({ overflow: 'hidden' })
+					.bind('touchmove', function (e) {
+						e.preventDefault();
+					});
+			});
+
+			$('.xbtn').on('click', function () {
+				$('.m_menubg').removeClass('view');
+				$('.m_menu').removeClass('view');
+				$('.hd2').removeClass('view');
+				// 모바일 사이드메뉴만 스크롤
+				$('body').css({ overflow: '' }).unbind('touchmove');
+			});
+		});
+
+		$(function () {
+			$('.m_menu .m_menu_wrap .main_menu li').on('click', function () {
+				const check = $(this).hasClass('view');
+
+				$('.m_menu .m_menu_wrap .main_menu li').removeClass('view');
+
+				if (!check) {
+					$(this).addClass('view');
+				}
+			});
+		});
+		// main1
+		var swiper = new Swiper('.slider1', {
+			loop: true,
+			loopedSlides: 1.5,
+			centeredSlides: true,
+			spaceBetween: 40,
+			autoplay: {
+				delay: 15500,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+				// dragSize: 100,
+			},
+		});
+		// main2
+		var swiper = new Swiper('.slider2_1', {
+			direction: 'horizontal',
+			loop: true,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var swiper = new Swiper('.slider2_2', {
+			direction: 'horizontal',
+			loop: true,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var swiper = new Swiper('.slider2_3', {
+			direction: 'horizontal',
+			loop: true,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var best = document.querySelector('.best');
+		var one = document.querySelector('.one');
+		var set = document.querySelector('.set');
+		var slider2_1 = document.querySelector('.slider2_1');
+		var slider2_2 = document.querySelector('.slider2_2');
+		var slider2_3 = document.querySelector('.slider2_3');
+
+		best.addEventListener('click', function () {
+			slider2_1.style.display = 'block';
+			slider2_2.style.display = 'none';
+			slider2_3.style.display = 'none';
+			best.style.opacity = '1';
+			one.style.opacity = '0.3';
+			set.style.opacity = '0.3';
+		});
+		one.addEventListener('click', function () {
+			slider2_1.style.display = 'none';
+			slider2_2.style.display = 'block';
+			slider2_3.style.display = 'none';
+			best.style.opacity = '0.3';
+			one.style.opacity = '1';
+			set.style.opacity = '0.3';
+		});
+		set.addEventListener('click', function () {
+			slider2_1.style.display = 'none';
+			slider2_2.style.display = 'none';
+			slider2_3.style.display = 'block';
+			best.style.opacity = '0.3';
+			one.style.opacity = '0.3';
+			set.style.opacity = '1';
+		});
+		// main3
+
+		$(function () {
+			let main3 = $('.main3');
+			$(window).scroll(function () {
+				// top은 window의 스크롤탑값
+				const top = $(this).scrollTop();
+				// innerHeight1은 main3의 높이(마진은 계산x), innerHeight2는 m3left의 높이
+				var innerHeight1 = $('.main3').innerHeight();
+				var innerHeight2 = $('.m3left').innerHeight();
+				main3.each(function () {
+					// pos1은 main3의 탑값 + 57은 메뉴, 80은 타이틀높이, pos2는 main4 탑값
+					const pos1 = $('.main3').offset().top + 137;
+					const pos2 = $('.main4').offset().top;
+
+					// window의 탑값이 main3(+57)의 탑값보다 커지면
+					if (top > pos1) {
+						// scroll 클래스 추가 (픽스 해줌)
+						$('.main3').addClass('scroll');
+					} else {
+						// window의 탑값이 main3(+57)의 탑값보다 작아지면 = main3위로 올라가면
+						// scroll, scroll2를 제거해서 원래 모양으로 돌림
+						$('.main3').removeClass('scroll');
+						$('.main3').removeClass('scroll2');
+					}
+					// window의 탑값이 main4의 탑값보다 커지면 즉, main4화면으로 완전히 넘어오면
+					// 여기서 m3 left의 높이만큼 높이값을 빼준다. 그럼 main4화면으로 넘어오기전에
+					// 딱 m3 left의 높이만큼 되었을때 scroll2 클래스를 추가한다. (바텀 고정)
+					if (top > pos2 - innerHeight2) {
+						$('.main3').addClass('scroll2');
+						$('.main3').removeClass('scroll');
+					} else {
+						// window의 탑값이 (main4 - m3left)의 탑값보다 높아지면 즉, 화면이 그위로 올라가면
+						// scroll2를 제거해준다 (바텀 고정 > 픽스)
+						$('.main3').removeClass('scroll2');
+					}
+				});
+			});
+		});
+
+		var swiper = new Swiper('.slider3m', {
+			direction: 'horizontal',
+			loop: true,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+		// main4
+		var swiper = new Swiper('.slider3_1', {
+			direction: 'horizontal',
+			loop: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var swiper = new Swiper('.slider3_2', {
+			direction: 'horizontal',
+			loop: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var swiper = new Swiper('.slider3_3', {
+			direction: 'horizontal',
+			loop: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var swiper = new Swiper('.slider3_4', {
+			direction: 'horizontal',
+			loop: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 2.6,
+					spaceBetween: 10,
+				},
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+		$(function () {
+			$('.all').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.all').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.all').addClass('btnColory');
+				$('.m3slider').addClass('dpn');
+				$('.m3slider').removeClass('dpb');
+				$('.slider3_1').addClass('dpb');
+			});
+			$('.winter').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.winter').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.winter').addClass('btnColory');
+				$('.m3slider').addClass('dpn');
+				$('.m3slider').removeClass('dpb');
+				$('.slider3_2').addClass('dpb');
+			});
+			$('.boyf').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.boyf').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.boyf').addClass('btnColory');
+				$('.m3slider').addClass('dpn');
+				$('.m3slider').removeClass('dpb');
+				$('.slider3_3').addClass('dpb');
+			});
+			$('.coup').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.coup').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.coup').addClass('btnColory');
+				$('.m3slider').addClass('dpn');
+				$('.m3slider').removeClass('dpb');
+				$('.slider3_4').addClass('dpb');
+			});
+			$('.big').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.big').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.big').addClass('btnColory');
+			});
+			$('.fitn').on('click', function () {
+				const check = $('.mbt').addClass('btnColorn');
+				$('.fitn').removeClass('btnColorn');
+				$('.mbt').removeClass('btnColory');
+				$('.fitn').addClass('btnColory');
+			});
+		});
+		var swiper = new Swiper('.slider3_kw', {
+			direction: 'horizontal',
+			loop: false,
+			breakpoints: {
+				480: {
+					slidesPerView: 6,
+					spaceBetween: 10,
+				},
+				0: {
+					slidesPerView: 3.6,
+					spaceBetween: 10,
+				},
+			},
+		});
+		// topbtn
+		$(function () {
+			$('#topBtn').on('click', function (e) {
+				e.preventDefault();
+				$('html,body').animate({ scrollTop: 0 }, 600);
+			});
+
+			$(window).scroll(function () {
+				if ($(document).scrollTop() > 100) {
+					$('#topBtn').addClass('show');
+				} else {
+					$('#topBtn').removeClass('show');
+				}
+			});
+		});
+	</script>
+</html>
